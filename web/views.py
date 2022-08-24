@@ -2,7 +2,7 @@ from http.client import HTTPResponse
 from django.shortcuts import render
 import pickle
 import pandas as pd
-data=pd.read_csv('Cleaned_data.csv')
+data=pd.read_csv("Cleaned_data.csv")
 location=sorted(data['location'].unique())
 # Create your views here.
 def home(request):
