@@ -3,12 +3,14 @@ from django.shortcuts import render
 import pickle
 import pandas as pd
 data=pd.read_csv("Cleaned_data.csv")
+global location
 location=sorted(data['location'].unique())
 # Create your views here.
 def home(request):
     global location
     return render(request,'index.html',{"locations":location})
 def prediction(request):
+    global location
     pipe=pickle.load(open('RidgModel.pkl','rb'))
     loc=request.GET['loc']
     sqft=request.GET['total_sqrt']
